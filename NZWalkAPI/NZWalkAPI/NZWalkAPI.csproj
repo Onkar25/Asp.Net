@@ -21,10 +21,14 @@
     <None Remove="Models\" />
     <None Remove="Models\Domain\" />
     <None Remove="Data\" />
+    <None Remove="Migrations\" />
+    <None Remove="Models\DTO\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Models\Domain\" />
     <Folder Include="Data\" />
+    <Folder Include="Migrations\" />
+    <Folder Include="Models\DTO\" />
   </ItemGroup>
 </Project>
