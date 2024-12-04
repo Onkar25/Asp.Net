@@ -26,6 +26,8 @@
     <None Remove="Models\DTO\" />
     <None Remove="Repository\" />
     <None Remove="Mappings\" />
+    <None Remove="Models\DTO\Walks\" />
+    <None Remove="Models\DTO\Regions\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -35,5 +37,7 @@
     <Folder Include="Models\DTO\" />
     <Folder Include="Repository\" />
     <Folder Include="Mappings\" />
+    <Folder Include="Models\DTO\Walks\" />
+    <Folder Include="Models\DTO\Regions\" />
   </ItemGroup>
 </Project>
