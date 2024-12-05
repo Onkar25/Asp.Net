@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using NZWalkAPI.CustomActionFilter;
 using NZWalkAPI.Models.Domain;
 using NZWalkAPI.Models.DTO.Walks;
 using NZWalkAPI.Repository;
@@ -18,22 +19,27 @@ namespace NZWalkAPI.Controllers
         private readonly IMapper mapper;
         private readonly IWalkRepository walkRepository;
 
-        public WalksController(IMapper mapper , IWalkRepository walkRepository)
+        public WalksController(IMapper mapper, IWalkRepository walkRepository)
         {
             this.mapper = mapper;
             this.walkRepository = walkRepository;
         }
 
-
         // POST api/values
         [HttpPost]
-        public async Task<IActionResult> InsertWalks([FromBody] AddWalkRequestDto   addWalkRequestDto)
+        public async Task<IActionResult> InsertWalks([FromBody] AddWalkRequestDto addWalkRequestDto)
         {
-            var walkDomainData = mapper.Map<Walk>(addWalkRequestDto);
-            await walkRepository.InsertWalkData(walkDomainData);
+            if (ModelState.IsValid)
+            {
+                var walkDomainData = mapper.Map<Walk>(addWalkRequestDto);
+                await walkRepository.InsertWalkData(walkDomainData);
 
-            return Ok(mapper.Map<WalkDTO>(walkDomainData));
-
+                return Ok(mapper.Map<WalkDTO>(walkDomainData));
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
         }
 
         [HttpGet]
@@ -61,7 +67,8 @@ namespace NZWalkAPI.Controllers
 
         [HttpPut]
         [Route("{id:Guid}")]
-        public async Task<IActionResult> UpdateWalk([FromRoute]Guid id, [FromBody] UpdateWalkDto updateWalkDto)
+        [ValidateModel]
+        public async Task<IActionResult> UpdateWalk([FromRoute] Guid id, [FromBody] UpdateWalkDto updateWalkDto)
         {
             var walkDomainData = mapper.Map<Walk>(updateWalkDto);
             walkDomainData = await walkRepository.UpdateWalk(id, walkDomainData);
@@ -72,10 +79,9 @@ namespace NZWalkAPI.Controllers
             return Ok(mapper.Map<WalkDTO>(walkDomainData));
         }
 
-
         [HttpDelete]
         [Route("{id:Guid}")]
-        public async Task<IActionResult> DeleteWalk([FromRoute]Guid id)
+        public async Task<IActionResult> DeleteWalk([FromRoute] Guid id)
         {
             var walkDomainData = await walkRepository.DeleteWalk(id);
 

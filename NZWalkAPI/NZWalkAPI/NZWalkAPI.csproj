@@ -29,6 +29,7 @@
     <None Remove="Models\DTO\Walks\" />
     <None Remove="Models\DTO\Regions\" />
     <None Remove="Models\DTO\Difficulty\" />
+    <None Remove="CustomActionFilter\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -41,5 +42,6 @@
     <Folder Include="Models\DTO\Walks\" />
     <Folder Include="Models\DTO\Regions\" />
     <Folder Include="Models\DTO\Difficulty\" />
+    <Folder Include="CustomActionFilter\" />
   </ItemGroup>
 </Project>
