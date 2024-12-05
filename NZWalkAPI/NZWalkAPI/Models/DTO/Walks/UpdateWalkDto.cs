@@ -1,12 +1,9 @@
-﻿using System;
-using NZWalkAPI.Models.DTO.Difficulty;
-
+﻿
+using System;
 namespace NZWalkAPI.Models.DTO.Walks
 {
-	public class WalkDTO
+	public class UpdateWalkDto
 	{
-        public Guid Id { get; set; }
-
         public string Name { get; set; }
 
         public string Desription { get; set; }
@@ -15,9 +12,9 @@ namespace NZWalkAPI.Models.DTO.Walks
 
         public string? WalkImageUrl { get; set; }
 
-        public RegionDTO Region { get; set; }
+        public Guid DifficultyId { get; set; }
 
-        public DifficultyDto Difficulty { get; set; }
+        public Guid RegionId { get; set; }
     }
 }
 

@@ -28,6 +28,7 @@
     <None Remove="Mappings\" />
     <None Remove="Models\DTO\Walks\" />
     <None Remove="Models\DTO\Regions\" />
+    <None Remove="Models\DTO\Difficulty\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -39,5 +40,6 @@
     <Folder Include="Mappings\" />
     <Folder Include="Models\DTO\Walks\" />
     <Folder Include="Models\DTO\Regions\" />
+    <Folder Include="Models\DTO\Difficulty\" />
   </ItemGroup>
 </Project>

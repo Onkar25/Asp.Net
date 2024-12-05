@@ -36,31 +36,54 @@ namespace NZWalkAPI.Controllers
 
         }
 
-        //// GET: api/values
-        //[HttpGet]
-        //public IEnumerable<string> Get()
-        //{
-        //    return new string[] { "value1", "value2" };
-        //}
+        [HttpGet]
+        public async Task<IActionResult> GetAllWalks()
+        {
+            var walkDomainData = await walkRepository.GetAllWalks();
 
-        //// GET api/values/5
-        //[HttpGet("{id}")]
-        //public string Get(int id)
-        //{
-        //    return "value";
-        //}
+            var walkDtoData = mapper.Map<List<WalkDTO>>(walkDomainData);
 
-        //// PUT api/values/5
-        //[HttpPut("{id}")]
-        //public void Put(int id, [FromBody]string value)
-        //{
-        //}
+            return Ok(walkDtoData);
+        }
 
-        //// DELETE api/values/5
-        //[HttpDelete("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+        [HttpGet]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> GetWalkById(Guid id)
+        {
+            var walkDomainData = await walkRepository.GetWalkById(id);
+            if (walkDomainData == null)
+                return NotFound();
+
+            var walkDtoData = mapper.Map<WalkDTO>(walkDomainData);
+
+            return Ok(walkDtoData);
+        }
+
+        [HttpPut]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> UpdateWalk([FromRoute]Guid id, [FromBody] UpdateWalkDto updateWalkDto)
+        {
+            var walkDomainData = mapper.Map<Walk>(updateWalkDto);
+            walkDomainData = await walkRepository.UpdateWalk(id, walkDomainData);
+
+            if (walkDomainData == null)
+                return NotFound();
+
+            return Ok(mapper.Map<WalkDTO>(walkDomainData));
+        }
+
+
+        [HttpDelete]
+        [Route("{id:Guid}")]
+        public async Task<IActionResult> DeleteWalk([FromRoute]Guid id)
+        {
+            var walkDomainData = await walkRepository.DeleteWalk(id);
+
+            if (walkDomainData == null)
+                return NotFound();
+
+            return Ok(mapper.Map<WalkDTO>(walkDomainData));
+        }
     }
 }
 
