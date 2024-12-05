@@ -4,3 +4,6 @@ Single DB Context
 Multiple DB Context
 -- dotnet ef migrations add "Add User Authentication" --context NZWalkAuthDbContext
 -- dotnet ef database update --context NZWalkAuthDbContext
+
+-- dotnet ef migrations add "Add Images Table " --context NZWalkDbContext
+-- dotnet ef database update --context NZWalkDbContext

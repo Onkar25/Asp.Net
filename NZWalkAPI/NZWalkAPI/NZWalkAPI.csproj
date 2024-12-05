@@ -35,6 +35,8 @@
     <None Remove="Models\DTO\Difficulty\" />
     <None Remove="CustomActionFilter\" />
     <None Remove="Models\DTO\Authentication\" />
+    <None Remove="Models\DTO\Image\" />
+    <None Remove="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -49,5 +51,7 @@
     <Folder Include="Models\DTO\Difficulty\" />
     <Folder Include="CustomActionFilter\" />
     <Folder Include="Models\DTO\Authentication\" />
+    <Folder Include="Models\DTO\Image\" />
+    <Folder Include="Images\" />
   </ItemGroup>
 </Project>
