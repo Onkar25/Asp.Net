@@ -1,0 +1,14 @@
+Packages Installed
+
+// Mapper Packages
+AutoMapper
+
+// Entity Frame Package
+Microsoft.EntityFrameworkCore.SqlServer
+Microsoft.EntityFrameworkCore.Tools
+
+// Authentication Packages
+Microsoft.AspNetCore.Authentication.JwtBearer
+Microsoft.IdentityModel.Tokens
+System.IdentityModel.Tokens.Jwt
+Microsoft.AspNetCore.Identity.EntityFrameworkCore

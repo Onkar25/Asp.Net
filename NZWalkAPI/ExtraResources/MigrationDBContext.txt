@@ -1,0 +1,6 @@
+Single DB Context
+-- dotnet ef migrations add initial_migrate
+-- dotnet ef database update
+Multiple DB Context
+-- dotnet ef migrations add "Add User Authentication" --context NZWalkAuthDbContext
+-- dotnet ef database update --context NZWalkAuthDbContext

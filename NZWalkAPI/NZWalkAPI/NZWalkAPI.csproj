@@ -16,6 +16,10 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
+    <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.11" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.3.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.11" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +34,7 @@
     <None Remove="Models\DTO\Regions\" />
     <None Remove="Models\DTO\Difficulty\" />
     <None Remove="CustomActionFilter\" />
+    <None Remove="Models\DTO\Authentication\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -43,5 +48,6 @@
     <Folder Include="Models\DTO\Regions\" />
     <Folder Include="Models\DTO\Difficulty\" />
     <Folder Include="CustomActionFilter\" />
+    <Folder Include="Models\DTO\Authentication\" />
   </ItemGroup>
 </Project>
