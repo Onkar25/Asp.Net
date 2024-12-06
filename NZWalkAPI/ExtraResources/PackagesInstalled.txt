@@ -18,3 +18,7 @@ Serilog
 Serilog.AspNetCore
 Serilog.Sinks.Console -- Write on Console
 Serilog.Sinks.File -- Write on File
+
+// Api Versioning
+Microsoft.AspNetCore.Mvc.Versioning
+Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
