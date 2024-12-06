@@ -12,3 +12,9 @@ Microsoft.AspNetCore.Authentication.JwtBearer
 Microsoft.IdentityModel.Tokens
 System.IdentityModel.Tokens.Jwt
 Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+// Serilog Packages
+Serilog
+Serilog.AspNetCore
+Serilog.Sinks.Console -- Write on Console
+Serilog.Sinks.File -- Write on File

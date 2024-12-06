@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
@@ -49,11 +50,18 @@ namespace NZWalkAPI.Controllers
             [FromQuery] string? sortBy, [FromQuery] bool? isAscending,
             [FromQuery] int pageNo = 1, [FromQuery] int pageSize = 100)
         {
-            var walkDomainData = await walkRepository.GetAllWalks(filterOn, filterQuery, sortBy, isAscending ?? true, pageNo, pageSize);
+            try
+            {
+                throw new Exception("This is an error throi");
+                var walkDomainData = await walkRepository.GetAllWalks(filterOn, filterQuery, sortBy, isAscending ?? true, pageNo, pageSize);
 
-            var walkDtoData = mapper.Map<List<WalkDTO>>(walkDomainData);
+                var walkDtoData = mapper.Map<List<WalkDTO>>(walkDomainData);
 
-            return Ok(walkDtoData);
+                return Ok(walkDtoData);
+            }catch (Exception ex)
+            {
+                return Problem("Something went wrong", null, (int)HttpStatusCode.InternalServerError);
+            }
         }
 
         [HttpGet]

@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using System.Text.Json;
+using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using NZWalkAPI.CustomActionFilter;
@@ -13,38 +14,52 @@ namespace NZWalkAPI.Controllers
     [Route("api/[controller]")]
     public class RegionsController : Controller
     {
-        public RegionsController(IRegionRepository regionRepository, IMapper mapper)
+        private readonly IRegionRepository regionRepository;
+        private readonly IMapper mapper;
+        private readonly ILogger<RegionsController> logger;
+
+        public RegionsController(IRegionRepository regionRepository, IMapper mapper , ILogger<RegionsController> logger)
         {
             this.regionRepository = regionRepository;
             this.mapper = mapper;
+            this.logger = logger;
         }
-
-        private readonly IRegionRepository regionRepository;
-        private readonly IMapper mapper;
 
         // GET: api/values
         [HttpGet]
-        [Authorize(Roles ="Reader")]
+        //[Authorize(Roles ="Reader")]
         public async Task<IActionResult> GetAll()
         {
-            List<Region> regions = await regionRepository.GetRegionsAsync();
+            try
+            {
+                logger.LogInformation("Region GetAll method is invoked");
+                logger.LogWarning("This is warning logs");
+                throw new Exception("This is custom Exception");
+                List<Region> regions = await regionRepository.GetRegionsAsync();
+                logger.LogInformation($"We had fetch all Region data : {JsonSerializer.Serialize(regions)}");
+                #region Replace with Automapper
+                //var regionDtos = new List<RegionDTO>();
+                //foreach (var regionDomain in regions)
+                //{
+                //    regionDtos.Add(new RegionDTO
+                //    {
+                //        Id = regionDomain.Id,
+                //        Name = regionDomain.Name,
+                //        Code = regionDomain.Code,
+                //        RegionImageUrl = regionDomain.RegionImageUrl
+                //    });
+                //}
+                #endregion
+                var regionDtos = mapper.Map<List<RegionDTO>>(regions);
 
-            #region Replace with Automapper
-            //var regionDtos = new List<RegionDTO>();
-            //foreach (var regionDomain in regions)
-            //{
-            //    regionDtos.Add(new RegionDTO
-            //    {
-            //        Id = regionDomain.Id,
-            //        Name = regionDomain.Name,
-            //        Code = regionDomain.Code,
-            //        RegionImageUrl = regionDomain.RegionImageUrl
-            //    });
-            //}
-            #endregion
-            var regionDtos = mapper.Map<List<RegionDTO>>(regions);
-
-            return Ok(regionDtos);
+                return Ok(regionDtos);
+            }
+            catch(Exception ex)
+            {
+                logger.LogError(ex, ex.Message);
+                return BadRequest();
+            }
+          
         }
 
         [HttpGet]
