@@ -40,9 +40,9 @@
     <None Remove="CustomActionFilter\" />
     <None Remove="Models\DTO\Authentication\" />
     <None Remove="Models\DTO\Image\" />
-    <None Remove="Images\" />
     <None Remove="Logs\" />
     <None Remove="MiddleWares\" />
+    <None Remove="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -58,8 +58,14 @@
     <Folder Include="CustomActionFilter\" />
     <Folder Include="Models\DTO\Authentication\" />
     <Folder Include="Models\DTO\Image\" />
-    <Folder Include="Images\" />
     <Folder Include="Logs\" />
     <Folder Include="MiddleWares\" />
+    <Folder Include="Images\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\" />
+    <Content Remove="wwwroot\Images\" />
   </ItemGroup>
 </Project>
