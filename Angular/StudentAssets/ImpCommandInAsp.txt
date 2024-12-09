@@ -1,0 +1,36 @@
+Important Asset for Asp.net
+
+Important Extensions need
+
+C# dev kit
+Material Icon Theme
+Nuget Gallery
+Sqlite
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Packages needed for projects
+
+Microsoft.EntityFrameworkCore.Sqlite // Latest stable version base on the .Net Sdk version used in your project
+Microsoft.EntityFrameworkCore.Design // Latest stable version base on the .Net Sdk version used in your project
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Important Terminal Commands
+
+mkdir DatingApp //Make Directory
+cd DatingApp //Change Directory
+dotnet new sln //To create new Solution
+dotnet new webapi -controllers -n API //To Create new WEB Api App 
+dotnet sln add API // Merge both Solution and Project
+dotnet run // Run the application -- (Ctrl + C) to stop the run
+sudo dotnet dev-certs https --trust // Incase your https trust certifcate is not present
+sudo dotnet dev-certs https --clean // Incase your above command failed just clean and run aganin
+dotnet watch // Run the app with hot reload functionality -- (Ctrl + C) to stop the watch 
+dotnet clean // To clean the application
+
+// Don't forgot to create connection string for the database.
+dotnet tool list -g // To get list of tool install for migration 
+dotnet tool install --global dotnet-ef --version 8.0.11 // Command to install Migration took just check atest stable version base on the .Net Sdk version used in your project
+dotnet ef migrations add InitMigration -o Data/Migrations // Avoid to use C# component name like 'Migration' here give error
+dotnet ef database update  // To Update the migration to Sqlite server 
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+

@@ -1,8 +1,0 @@
-Command for the Asp.net 
-
-mkdir DatingApp
-cd DatingApp
-dotnet new sln 
-dotnet new webapi -controllers -n API
-dotnet new webapi -h
-dotnet sln add API
