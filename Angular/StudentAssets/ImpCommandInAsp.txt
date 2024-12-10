@@ -4,22 +4,19 @@ Download Dot Net SDK 8.0
 
 Important Extensions need
 
-
 C# dev kit
 Material Icon Theme
 Nuget Gallery
 Sqlite
 Angular Language Service
 
-
-
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Packages needed for projects
 
 Microsoft.EntityFrameworkCore.Sqlite // Latest stable version base on the .Net Sdk version used in your project
 Microsoft.EntityFrameworkCore.Design // Latest stable version base on the .Net Sdk version used in your project
-
-
+System.IdentityModel.Tokens.Jwt
+Microsoft.AspNetCore.Authentication.JwtBearer  // Latest stable version base on the .Net Sdk version used in your project
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Important Terminal Commands
 
@@ -65,5 +62,10 @@ mkdir ssl  // Make ssl Directory
 cd ssl   // Change to ssl Directory
 sudo mkcert localhost // Add certificate 
 sudo ng serve
------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+
+
+// JWT (Json Web Token)
+// Three parts 1. Header 2. Payload 3. Verify Signature
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------
