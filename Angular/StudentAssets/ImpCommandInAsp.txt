@@ -63,9 +63,19 @@ cd ssl   // Change to ssl Directory
 sudo mkcert localhost // Add certificate 
 sudo ng serve
 
-
-
 // JWT (Json Web Token)
 // Three parts 1. Header 2. Payload 3. Verify Signature
+
+
+// Angular Command to Copy component
+ng generate --help  // For help
+ng g c nav --dry-run    // --dry-run Show the structure created in app 
+ng g c nav --skip-tests --dry-run  // --skip-tests Remove the unit test case files from structure
+ng g c nav --skip-tests  // Create the structure in the Web app
+CREATE src/app/nav/nav.component.css (0 bytes)
+CREATE src/app/nav/nav.component.html (18 bytes)
+CREATE src/app/nav/nav.component.ts (202 bytes)
+ng g s _services/account --dry-run // s : Show the structure to create Angular Service
+ng g s _services/account --skip-tests // s : Create the Angular Service
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
