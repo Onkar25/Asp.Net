@@ -82,6 +82,8 @@ ng g c members/member-detail --skip-tests
 ng g c lists --skip-tests
 ng g c messages --skip-tests
 ng g g _guard/auth --skip-tests // g : To create the Angular Guard Service (CanActive)
+ng g c errors/test-errors --skip-tests
+ng g interceptor _interceptors/error --skip-tests : interceptor - To create the interceptor for error handling
 
 // Install Angular Toaster
 npm install ngx-toastr   // 
@@ -89,4 +91,5 @@ npm install ngx-toastr   //
 // To install Bootswatch themes
 npm i bootswatch --force 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+ng g c errors/not-found --skip-tests
+ng g c errors/server-error --skip-tests
