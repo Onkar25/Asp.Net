@@ -77,5 +77,16 @@ CREATE src/app/nav/nav.component.html (18 bytes)
 CREATE src/app/nav/nav.component.ts (202 bytes)
 ng g s _services/account --dry-run // s : Show the structure to create Angular Service
 ng g s _services/account --skip-tests // s : Create the Angular Service
+ng g c members/member-list --skip-tests
+ng g c members/member-detail --skip-tests
+ng g c lists --skip-tests
+ng g c messages --skip-tests
+ng g g _guard/auth --skip-tests // g : To create the Angular Guard Service (CanActive)
 
+// Install Angular Toaster
+npm install ngx-toastr   // 
+
+// To install Bootswatch themes
+npm i bootswatch --force 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
