@@ -2,7 +2,6 @@ using System.Security.Cryptography;
 using System.Text;
 using API.Data;
 using API.DTOs;
-using API.Entities;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -41,27 +40,28 @@ public class AccountController(DataContext context, ITokenServices token) : Base
     [HttpPost("register")]
     public async Task<ActionResult<UserDto>> Register(RegistrationDto registerUser)
     {
-        if (await UserExist(registerUser.Username))
-        {
-            return BadRequest("User already exist");
-        }
+        return Ok();
+        // if (await UserExist(registerUser.Username))
+        // {
+        //     return BadRequest("User already exist");
+        // }
 
-        using var hash = new HMACSHA512();
-        var user = new AppUser
-        {
-            UserName = registerUser.Username.ToLower(),
-            PasswordHash = hash.ComputeHash(Encoding.UTF8.GetBytes(registerUser.Password)),
-            PasswordSalt = hash.Key
-        };
+        // using var hash = new HMACSHA512();
+        // var user = new AppUser
+        // {
+        //     UserName = registerUser.Username.ToLower(),
+        //     PasswordHash = hash.ComputeHash(Encoding.UTF8.GetBytes(registerUser.Password)),
+        //     PasswordSalt = hash.Key
+        // };
 
-        context.Users.Add(user);
-        await context.SaveChangesAsync();
+        // context.Users.Add(user);
+        // await context.SaveChangesAsync();
 
-        return new UserDto
-        {
-            Username = user.UserName,
-            Token = token.CreateToken(user)
-        };;
+        // return new UserDto
+        // {
+        //     Username = user.UserName,
+        //     Token = token.CreateToken(user)
+        // };;
     }
 
     private async Task<bool> UserExist(string username)

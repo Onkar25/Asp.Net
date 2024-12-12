@@ -17,6 +17,7 @@ Microsoft.EntityFrameworkCore.Sqlite // Latest stable version base on the .Net S
 Microsoft.EntityFrameworkCore.Design // Latest stable version base on the .Net Sdk version used in your project
 System.IdentityModel.Tokens.Jwt
 Microsoft.AspNetCore.Authentication.JwtBearer  // Latest stable version base on the .Net Sdk version used in your project
+AutoMapper //  services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 Important Terminal Commands
 
@@ -35,7 +36,8 @@ dotnet clean // To clean the application
 dotnet tool list -g // To get list of tool install for migration 
 dotnet tool install --global dotnet-ef --version 8.0.11 // Command to install Migration took just check atest stable version base on the .Net Sdk version used in your project
 dotnet ef migrations add InitMigration -o Data/Migrations // Avoid to use C# component name like 'Migration' here give error
-dotnet ef database update  // To Update the migration to Sqlite server 
+dotnet ef database update  // To Update the migration to Sqlite server
+dotnet ef database drop // To Drop the database 
 
 // Install Angular plugin through VS Code Terminal
 
@@ -84,12 +86,15 @@ ng g c messages --skip-tests
 ng g g _guard/auth --skip-tests // g : To create the Angular Guard Service (CanActive)
 ng g c errors/test-errors --skip-tests
 ng g interceptor _interceptors/error --skip-tests : interceptor - To create the interceptor for error handling
+ng g c errors/not-found --skip-tests
+ng g c errors/server-error --skip-tests
+
 
 // Install Angular Toaster
 npm install ngx-toastr   // 
 
 // To install Bootswatch themes
 npm i bootswatch --force 
+
+
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-ng g c errors/not-found --skip-tests
-ng g c errors/server-error --skip-tests
