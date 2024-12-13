@@ -71,24 +71,42 @@ sudo ng serve
 
 // Angular Command to Copy component
 ng generate --help  // For help
+
+// Angular services
+ng g s _services/account --dry-run // s : Show the structure to create Angular Service
+ng g s _services/account --skip-tests // s : Create the Angular Service
+ng g s _services/busy --skip-tests
+
+
+// Angular Component
 ng g c nav --dry-run    // --dry-run Show the structure created in app 
 ng g c nav --skip-tests --dry-run  // --skip-tests Remove the unit test case files from structure
 ng g c nav --skip-tests  // Create the structure in the Web app
 CREATE src/app/nav/nav.component.css (0 bytes)
 CREATE src/app/nav/nav.component.html (18 bytes)
 CREATE src/app/nav/nav.component.ts (202 bytes)
-ng g s _services/account --dry-run // s : Show the structure to create Angular Service
-ng g s _services/account --skip-tests // s : Create the Angular Service
 ng g c members/member-list --skip-tests
 ng g c members/member-detail --skip-tests
 ng g c lists --skip-tests
 ng g c messages --skip-tests
-ng g g _guard/auth --skip-tests // g : To create the Angular Guard Service (CanActive)
 ng g c errors/test-errors --skip-tests
-ng g interceptor _interceptors/error --skip-tests : interceptor - To create the interceptor for error handling
 ng g c errors/not-found --skip-tests
 ng g c errors/server-error --skip-tests
+ng g c members/member-card --skip-tests
+ng g c members/member-edit --skip-tests
 
+// Angular Guard Service 
+ng g g _guard/auth --skip-tests // g : To create the Angular Guard Service (CanActive)
+ng g guard _guard/prevent-unsaved-changes --skip-tests  // CanDeactivate
+
+
+// Angular Interceptor
+ng g interceptor _interceptors/error --skip-tests : interceptor - To create the interceptor for error handling
+ng g interceptor _interceptors/jwt --skip-tests
+
+
+// Angular environments
+ng g environments
 
 // Install Angular Toaster
 npm install ngx-toastr   // 
@@ -96,5 +114,11 @@ npm install ngx-toastr   //
 // To install Bootswatch themes
 npm i bootswatch --force 
 
+// To install Ng Gallary
+npm i ng-gallery
 
+// To insta ngx Spinner 
+npm i ngx-spinner --force
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+ng g interceptor _interceptors/loading --skip-tests
+
