@@ -97,6 +97,8 @@ ng g c errors/server-error --skip-tests
 ng g c members/member-card --skip-tests
 ng g c members/member-edit --skip-tests
 ng g c members/photo-editor --skip-tests
+ng g c _forms/text-input --skip-tests
+ng g c _forms/date-picker --skip-tests
 
 
 // Angular Guard Service 

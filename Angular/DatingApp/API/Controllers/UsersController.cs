@@ -57,7 +57,9 @@ public class UsersController(IUserRepository repository, IMapper mapper, IPhotoS
             PublicId = result.PublicId,
             Url = result.SecureUrl.AbsoluteUri
         };
-
+        if (user.Photos.Count == 0)
+            photo.IsMain = true;
+            
         user.Photos.Add(photo);
 
         if (await repository.SaveAllAsync())

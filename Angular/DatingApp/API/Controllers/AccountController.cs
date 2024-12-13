@@ -2,13 +2,15 @@ using System.Security.Cryptography;
 using System.Text;
 using API.Data;
 using API.DTOs;
+using API.Entities;
 using API.Interfaces;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers;
 
-public class AccountController(DataContext context, ITokenServices token) : BaseApiContoller
+public class AccountController(DataContext context, ITokenServices token, IMapper mapper) : BaseApiContoller
 {
 
     [HttpPost("login")]
@@ -33,6 +35,7 @@ public class AccountController(DataContext context, ITokenServices token) : Base
         {
             Username = user.UserName,
             Token = token.CreateToken(user),
+            KnownAs = user.KnownAs,
             PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url
         };
     }
@@ -40,28 +43,27 @@ public class AccountController(DataContext context, ITokenServices token) : Base
     [HttpPost("register")]
     public async Task<ActionResult<UserDto>> Register(RegistrationDto registerUser)
     {
-        return Ok();
-        // if (await UserExist(registerUser.Username))
-        // {
-        //     return BadRequest("User already exist");
-        // }
+        if (await UserExist(registerUser.Username))
+        {
+            return BadRequest("User already exist");
+        }
 
-        // using var hash = new HMACSHA512();
-        // var user = new AppUser
-        // {
-        //     UserName = registerUser.Username.ToLower(),
-        //     PasswordHash = hash.ComputeHash(Encoding.UTF8.GetBytes(registerUser.Password)),
-        //     PasswordSalt = hash.Key
-        // };
+        // Hashing of password
+        using var hash = new HMACSHA512();
+        var user = mapper.Map<AppUser>(registerUser);
+        user.UserName = registerUser.Username.ToLower();
+        user.PasswordHash = hash.ComputeHash(Encoding.UTF8.GetBytes(registerUser.Password));
+        user.PasswordSalt = hash.Key;
 
-        // context.Users.Add(user);
-        // await context.SaveChangesAsync();
+        context.Users.Add(user);
+        await context.SaveChangesAsync();
 
-        // return new UserDto
-        // {
-        //     Username = user.UserName,
-        //     Token = token.CreateToken(user)
-        // };;
+        return new UserDto
+        {
+            Username = user.UserName,
+            KnownAs = user.KnownAs,
+            Token = token.CreateToken(user)
+        };
     }
 
     private async Task<bool> UserExist(string username)
