@@ -36,6 +36,7 @@ public class AccountController(DataContext context, ITokenServices token, IMappe
             Username = user.UserName,
             Token = token.CreateToken(user),
             KnownAs = user.KnownAs,
+            Gender = user.Gender,
             PhotoUrl = user.Photos.FirstOrDefault(x => x.IsMain)?.Url
         };
     }
@@ -61,6 +62,7 @@ public class AccountController(DataContext context, ITokenServices token, IMappe
         return new UserDto
         {
             Username = user.UserName,
+            Gender = user.Gender,
             KnownAs = user.KnownAs,
             Token = token.CreateToken(user)
         };

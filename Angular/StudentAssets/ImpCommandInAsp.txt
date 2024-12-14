@@ -129,6 +129,9 @@ npm i ngx-spinner --force
 // To install ng2 file upload
 npm i ng2-file-upload --force
 
+// To install ngx Time Ago
+npm i ngx-timeago --force
+
 
 {
 	"username": "lisa",

@@ -21,7 +21,8 @@ public class TokenServices(IConfiguration config) : ITokenServices
         // Create Claims for the token
         var claims = new List<Claim>
         { 
-            new (ClaimTypes.NameIdentifier ,user.UserName),
+            new (ClaimTypes.NameIdentifier ,user.Id.ToString()),
+            new (ClaimTypes.Name ,user.UserName),
         };
 
         // Create Credentials for the token
