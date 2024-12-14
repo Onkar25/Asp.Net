@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
-  imports: [ReactiveFormsModule, JsonPipe, TextInputComponent, DatePickerComponent],
+  imports: [ReactiveFormsModule, TextInputComponent, DatePickerComponent],
   standalone: true,
   templateUrl: './register.component.html',
   styleUrl: './register.component.css'
@@ -65,8 +65,8 @@ export class RegisterComponent implements OnInit {
   register() {
 
     // Patching the DOB in proper format
-    const dob =this.getDateOnly(this.registerForm.get('dateOfBirth')?.value);
-    this.registerForm.patchValue({dateOfBirth:dob});
+    const dob = this.getDateOnly(this.registerForm.get('dateOfBirth')?.value);
+    this.registerForm.patchValue({ dateOfBirth: dob });
 
     console.log(this.registerForm.value);
     this.accountService.register(this.registerForm.value).subscribe({
@@ -81,7 +81,7 @@ export class RegisterComponent implements OnInit {
   }
 
   getDateOnly(dob: string | undefined) {
-if(!dob) return;
-  return new Date(dob).toISOString().slice(0,10);
+    if (!dob) return;
+    return new Date(dob).toISOString().slice(0, 10);
   }
 }

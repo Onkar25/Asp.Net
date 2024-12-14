@@ -7,6 +7,7 @@ import { Photo } from '../_models/photo';
 import { PaginatedResult } from '../_models/pagination';
 import { UserParams } from '../_models/userParam';
 import { AccountService } from './account.service';
+import { setPaginationHeaders, setPaginationResponse,  } from './paginationHelper';
 
 @Injectable({
   providedIn: 'root'
@@ -28,9 +29,9 @@ resetParams(){
 
   getMembers() {
     const response = this.memberCache.get(Object.values(this.userParamss()).join('-'));
-    if (response) return this.setPaginationResponse(response);
+    if (response) return setPaginationResponse(response , this.paginationResult);
 
-    let params = this.setPrivateHeaders(this.userParamss().pageNumber, this.userParamss().pageSize);
+    let params = setPaginationHeaders(this.userParamss().pageNumber, this.userParamss().pageSize);
     params = params.append('gender', this.userParamss().gender);
     params = params.append('minAge', this.userParamss().minAge);
     params = params.append('maxAge', this.userParamss().maxAge);
@@ -39,27 +40,13 @@ resetParams(){
     return this.http.get<Member[]>(this.baseUrl + 'users', { observe: 'response', params }).subscribe(
       {
         next: response => {
-          this.setPaginationResponse(response);
+          setPaginationResponse(response ,this.paginationResult);
           this.memberCache.set(Object.values(this.userParamss()).join('-'), response);
         }
       });
   }
 
-  setPaginationResponse(response: HttpResponse<Member[]>) {
-    this.paginationResult.set({
-      items: response.body as Member[],
-      pagination: JSON.parse(response.headers.get('Pagination')!)
-    })
-  }
 
-  private setPrivateHeaders(pageNumber?: number, pageSize?: number) {
-    let params = new HttpParams();
-    if (pageNumber && pageSize) {
-      params = params.append('pageNumber', pageNumber);
-      params = params.append('pageSize', pageSize);
-    }
-    return params;
-  }
 
   getMember(username: string) {
     // Older Approach

@@ -40,6 +40,8 @@ dotnet tool install --global dotnet-ef --version 8.0.11 // Command to install Mi
 dotnet ef migrations add InitMigration -o Data/Migrations // Avoid to use C# component name like 'Migration' here give error
 dotnet ef database update  // To Update the migration to Sqlite server
 dotnet ef database drop // To Drop the database 
+dotnet ef migrations add UserLikesAdded
+
 
 // Install Angular plugin through VS Code Terminal
 
@@ -78,7 +80,7 @@ ng generate --help  // For help
 ng g s _services/account --dry-run // s : Show the structure to create Angular Service
 ng g s _services/account --skip-tests // s : Create the Angular Service
 ng g s _services/busy --skip-tests
-
+ng g s _services/likes --skip-tests
 
 // Angular Component
 ng g c nav --dry-run    // --dry-run Show the structure created in app 
