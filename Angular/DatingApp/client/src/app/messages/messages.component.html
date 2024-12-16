@@ -1,1 +1,3 @@
-<p>messages works!</p>
+@for (message of messageService.pagenatedResult()?.items; track message.id) {
+<h3> {{message.conten}}</h3>
+}

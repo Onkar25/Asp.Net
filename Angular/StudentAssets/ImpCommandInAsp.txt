@@ -81,6 +81,7 @@ ng g s _services/account --dry-run // s : Show the structure to create Angular S
 ng g s _services/account --skip-tests // s : Create the Angular Service
 ng g s _services/busy --skip-tests
 ng g s _services/likes --skip-tests
+ng g s _services/message --skip-tests
 
 // Angular Component
 ng g c nav --dry-run    // --dry-run Show the structure created in app 

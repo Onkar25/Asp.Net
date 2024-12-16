@@ -1,4 +1,3 @@
-using System;
 using API.Extensions;
 using API.Interfaces;
 using Microsoft.AspNetCore.Mvc.Filters;
@@ -15,6 +14,8 @@ public class LogUserActivity : IAsyncActionFilter
         var userId = resultContext.HttpContext.User.GetUserId();
 
         var repo = resultContext.HttpContext.RequestServices.GetService<IUserRepository>();
+        if (repo == null)
+            return;
         var user = await repo.GetUserByIdAsync(userId);
         if (user == null)
             return;
