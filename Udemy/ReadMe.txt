@@ -1,4 +1,4 @@
-// Dot Net commands list
+// Dot Net commands list (API)
 
 code .
 
@@ -18,7 +18,44 @@ dotnet tool list -g
 dotnet tool install --global dotnet-ef --version 9.0.4
 
 dotnet ef migrations add InitialCreate -o Data/Migrations
-dotnet ef database update      
+dotnet ef database update  
+
+-------------------------------------------------------------------------
+Angular (client)
+
+# Download and install nvm:
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+
+# in lieu of restarting the shell
+\. "$HOME/.nvm/nvm.sh"
+
+# Download and install Node.js:
+nvm install 22
+
+# Verify the Node.js version:
+node -v # Should print "v22.15.0".
+nvm current # Should print "v22.15.0".
+
+# Verify npm version:
+npm -v # Should print "10.9.2".
+
+
+npm install -g @angular/cli@18
+ng version
+
+ng new client
+ng serve
+
+
+npm install ngx-bootstrap@18 bootstrap font-awesome
+
+
+brew install mkcert
+brew install nss # if you use Firefox
+mkcert -install  // client
+mkdir ssl
+cd ssl
+mkcert localhost
 -------------------------------------------------------------------------
 Packages
 

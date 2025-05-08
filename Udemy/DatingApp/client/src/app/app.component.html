@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+
+
+<ul>
+  @for (user of users; track $index) {
+    <li>
+        {{user.id}} - {{user.userName}}
+    </li>
+  }
+
+  <!-- This will create directive object which will make app heavy -->
+  <!-- <li *ngFor="let user of users">
+    {{user.id}} - {{user.userName}}
+  </li> -->
+
+
+</ul>
