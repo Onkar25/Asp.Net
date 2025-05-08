@@ -486,3 +486,16 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Flutter / Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+pubspec.lock
+
+# .NET MAUI-specific
+Platforms/**/bin/
+Platforms/**/obj/
