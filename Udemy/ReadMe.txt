@@ -61,7 +61,8 @@ Packages
 
 Microsoft.EntityFrameworkCore.Design
 Microsoft.EntityFrameworkCore.Sqlite
-
+System.IdentityModel.Tokens.Jwt
+Microsoft.AspNetCore.Authentication.JwtBearer
 -------------------------------------------------------------------------
 
 // Environmental Variables
