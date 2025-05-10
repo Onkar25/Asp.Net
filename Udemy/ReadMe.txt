@@ -46,7 +46,14 @@ ng version
 ng new client
 ng serve
 
+// Component
+ng g c nav --skip-tests --dry-run
+ng g c nav --skip-tests
 
+// Services
+ng g s _services/account --skip-tests --dry-run
+ng g s _services/account --skip-tests
+-------------------------------------------------------------------------
 npm install ngx-bootstrap@18 bootstrap font-awesome
 
 
