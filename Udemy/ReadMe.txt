@@ -57,6 +57,9 @@ ng g s _services/account --skip-tests
 // Route Gaurd 
 ng g g _guards/auth --skip-tests --dry-run
 ng g g _guards/auth --skip-tests 
+
+// Interceptor
+ng g interceptor _interceptors/error --skip-tests --dry-run
 -------------------------------------------------------------------------
 npm install ngx-bootstrap@18 bootstrap font-awesome
 npm install ngx-toastr

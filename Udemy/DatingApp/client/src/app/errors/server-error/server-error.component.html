@@ -1,0 +1,11 @@
+<h4>Internal Server get400Error</h4>
+
+@if(error) {
+<h5 class="text-bg-danger">Error : {{ error.message }}</h5>
+<p>Angular is not responsible for this</p>
+<p>Steps to reporduce the same</p>
+
+<code class="mt-5">
+  {{ error.details }}
+</code>
+}
