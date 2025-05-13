@@ -18,7 +18,9 @@ dotnet tool list -g
 dotnet tool install --global dotnet-ef --version 9.0.4
 
 dotnet ef migrations add InitialCreate -o Data/Migrations
-dotnet ef database update  
+dotnet ef migrations remove // Before update statement  
+dotnet ef database update
+dotnet ef database drop
 
 -------------------------------------------------------------------------
 Angular (client)
@@ -77,6 +79,7 @@ Microsoft.EntityFrameworkCore.Design
 Microsoft.EntityFrameworkCore.Sqlite
 System.IdentityModel.Tokens.Jwt
 Microsoft.AspNetCore.Authentication.JwtBearer
+AutoMapper
 -------------------------------------------------------------------------
 
 // Environmental Variables
