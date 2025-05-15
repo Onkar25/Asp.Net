@@ -64,7 +64,6 @@ ng g g _guards/auth --skip-tests
 ng g interceptor _interceptors/error --skip-tests --dry-run
 ng g interceptor _interceptors/error --skip-tests
 
-
 // Configuratio 
 ng g environments
 -------------------------------------------------------------------------
@@ -87,6 +86,7 @@ Microsoft.EntityFrameworkCore.Sqlite
 System.IdentityModel.Tokens.Jwt
 Microsoft.AspNetCore.Authentication.JwtBearer
 AutoMapper
+
 -------------------------------------------------------------------------
 
 // Environmental Variables
