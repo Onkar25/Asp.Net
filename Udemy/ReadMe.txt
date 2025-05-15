@@ -62,9 +62,16 @@ ng g g _guards/auth --skip-tests
 
 // Interceptor
 ng g interceptor _interceptors/error --skip-tests --dry-run
+ng g interceptor _interceptors/error --skip-tests
+
+
+// Configuratio 
+ng g environments
 -------------------------------------------------------------------------
 npm install ngx-bootstrap@18 bootstrap font-awesome
 npm install ngx-toastr
+npm i ng-gallery
+
 
 brew install mkcert
 brew install nss # if you use Firefox
