@@ -1,6 +1,5 @@
-using API.Extensions;
-
 namespace API.Entities;
+
 public class AppUsers
 {
   public int Id { get; set; }

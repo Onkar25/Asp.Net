@@ -86,6 +86,7 @@ Microsoft.EntityFrameworkCore.Sqlite
 System.IdentityModel.Tokens.Jwt
 Microsoft.AspNetCore.Authentication.JwtBearer
 AutoMapper
+CloudinaryDotNet
 
 -------------------------------------------------------------------------
 
