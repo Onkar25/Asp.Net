@@ -52,6 +52,7 @@ ng serve
 ng g c nav --skip-tests --dry-run
 ng g c nav --skip-tests
 
+
 // Services
 ng g s _services/account --skip-tests --dry-run
 ng g s _services/account --skip-tests
@@ -70,7 +71,6 @@ ng g environments
 npm install ngx-bootstrap@18 bootstrap font-awesome
 npm install ngx-toastr
 npm i ng-gallery
-
 
 brew install mkcert
 brew install nss # if you use Firefox
@@ -93,7 +93,6 @@ CloudinaryDotNet
 // Environmental Variables
 PATH="$PATH:/usr/local/share/dotnet/sdk"
 PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
 
 -------------------------------------------------------------------------
 Thememing
