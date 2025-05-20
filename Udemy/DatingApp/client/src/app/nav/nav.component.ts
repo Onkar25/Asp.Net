@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
 import { AccountService } from '../_services/account.service';
-import { NgIf, TitleCasePipe } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
@@ -9,7 +8,7 @@ import { ToastrService } from 'ngx-toastr';
   selector: 'app-nav',
   standalone: true,
   // imports: [FormsModule, NgIf],
-  imports: [FormsModule, BsDropdownModule, RouterLink, RouterLinkActive, TitleCasePipe],
+  imports: [FormsModule, BsDropdownModule, RouterLink, RouterLinkActive],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })

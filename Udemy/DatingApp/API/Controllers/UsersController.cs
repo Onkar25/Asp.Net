@@ -1,12 +1,11 @@
-using System.Security.Claims;
 using API.DTOs;
 using API.Interfaces;
 using AutoMapper;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using API.Extensions;
-using API.Services;
 using API.Entities;
+using API.Helpers;
 namespace API.Controllers;
 
 [Authorize]
@@ -14,9 +13,11 @@ public class UsersController(IUserRepository userRepository, IMapper mapper, IPh
 {
   // Anyone can access this API
   [HttpGet]
-  public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
+  public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers([FromQuery] UserParams userParams)
   {
-    var users = await userRepository.GetMemberAsyn();
+    userParams.CurrentUsername = User.GetUsername();
+    var users = await userRepository.GetMembersAsync(userParams);
+    Response.AddPaginationHeader(users);
     return Ok(users);
   }
 
