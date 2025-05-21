@@ -51,8 +51,7 @@ ng serve
 // Component
 ng g c nav --skip-tests --dry-run
 ng g c nav --skip-tests
-
-
+ng g c members/member-messages --skip-tests
 // Services
 ng g s _services/account --skip-tests --dry-run
 ng g s _services/account --skip-tests
@@ -64,6 +63,10 @@ ng g g _guards/auth --skip-tests
 // Interceptor
 ng g interceptor _interceptors/error --skip-tests --dry-run
 ng g interceptor _interceptors/error --skip-tests
+
+// Resolver
+ng g r _resolver/member-detailed --skip-tests --dry-run
+ng g r _resolver/member-detailed --skip-tests
 
 // Configuratio 
 ng g environments
