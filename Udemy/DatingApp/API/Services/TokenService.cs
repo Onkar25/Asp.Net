@@ -3,13 +3,14 @@ using System.Security.Claims;
 using System.Text;
 using API.Entities;
 using API.Interfaces;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 
 namespace API.Services;
 
-public class TokenService(IConfiguration config) : ITokenService
+public class TokenService(IConfiguration config, UserManager<AppUsers> userManager) : ITokenService
 {
-  public string CreateToken(AppUsers user)
+  public async Task<string> CreateToken(AppUsers user)
   {
     var tokenKey = config["TokenKey"] ?? throw new Exception("Cannot access token Key from App Setting");
 
@@ -18,11 +19,17 @@ public class TokenService(IConfiguration config) : ITokenService
 
     var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(tokenKey));
 
+    if (user.UserName == null)
+      throw new Exception("No username for user");
+
     var claims = new List<Claim>
-    {
+      {
       new (ClaimTypes.NameIdentifier , user.Id.ToString()),
       new (ClaimTypes.Name , user.UserName)
-    };
+      };
+
+    var roles = await userManager.GetRolesAsync(user);
+    claims.AddRange(roles.Select(role => new Claim(ClaimTypes.Role, role)));
 
     var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 

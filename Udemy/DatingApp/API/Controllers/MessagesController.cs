@@ -1,4 +1,3 @@
-using System;
 using API.DTOs;
 using API.Entities;
 using API.Extensions;
@@ -26,7 +25,7 @@ IMapper mapper) : BaseApiController
     var sender = await userRepository.GetUserByUsernameAsync(username);
     var recipient = await userRepository.GetUserByUsernameAsync(createMessageDto.RecipientUsername);
 
-    if (recipient == null || sender == null)
+    if (recipient == null || sender == null || sender.UserName == null || recipient.UserName == null)
       return BadRequest("Cannot send message at this time");
 
     var message = new Message
