@@ -100,6 +100,9 @@ Microsoft.AspNetCore.Authentication.JwtBearer
 AutoMapper
 CloudinaryDotNet
 Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+SignalR
+npm install @microsoft/signalr
 -------------------------------------------------------------------------
 
 // Environmental Variables
