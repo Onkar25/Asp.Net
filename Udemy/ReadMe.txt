@@ -53,8 +53,6 @@ ng serve
 // Component
 ng g c nav --dry-run
 ng g c nav --skip-tests
-ng g c modals/roles-modal --skip-tests
-
 
 // Services
 ng g s _services/account --dry-run
