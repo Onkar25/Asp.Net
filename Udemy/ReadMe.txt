@@ -23,7 +23,13 @@ dotnet ef migrations remove // Before update statement
 dotnet ef database update
 dotnet ef database drop
 
-dotnet ef migrations add IdentityAdded
+Connection String
+
+Sqlite
+"DefaultConnection": "Data source=dating.db"
+
+SqlServer
+"DefaultConnection": "Data source=dating.db"
 -------------------------------------------------------------------------
 Angular (client)
 
@@ -98,7 +104,7 @@ Microsoft.AspNetCore.Authentication.JwtBearer
 AutoMapper
 CloudinaryDotNet
 Microsoft.AspNetCore.Identity.EntityFrameworkCore
-
+Microsoft.EntityFrameworkCore.SqlServer
 SignalR
 npm install @microsoft/signalr
 -------------------------------------------------------------------------
@@ -111,3 +117,17 @@ PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 Thememing
 
 https://bootswatch.com/superhero/
+
+
+-------------------------------------------------------------------------
+Docker commands
+
+docker compose up -d
+
+-------------------------------------------------------------------------
+Azure Web App publishing(cof8) 
+
+dotnet publish -c Release -o ./bin/Publish
+Then Right click Publish folder and deploy to Web App
+
+Db - appuser - Crooks@2025
