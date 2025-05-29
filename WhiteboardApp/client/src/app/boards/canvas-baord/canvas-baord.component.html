@@ -1,0 +1,15 @@
+<canvas
+  id="canvas"
+  width="500"
+  height="500"
+  style="border: 1px solid black"
+></canvas>
+<div class="d-flex">
+  <button class="btn btn-primary p-2 d-flex" #clearBtn>Clear</button>
+  <button class="btn btn-success p-2 d-flex" (click)="saveDrawing()">
+    Save
+  </button>
+  <button class="btn btn-secondary p-2 d-flex" (click)="loadDrawing()">
+    Load
+  </button>
+</div>

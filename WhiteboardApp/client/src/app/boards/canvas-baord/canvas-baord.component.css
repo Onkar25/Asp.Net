@@ -1,0 +1,9 @@
+.boardcontainer {
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1200px;
+  background-color: aqua;
+  border: 2px solid black;
+}
